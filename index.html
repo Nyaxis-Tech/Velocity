@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Velocity Motors - Drive The Future</title>
+        <meta
+            name="description"
+            content="Experience unmatched performance and cutting-edge technology with Velocity Motors. Luxury electric vehicles engineered for excellence."
+        />
+        <link rel="icon" type="image/x-icon" href="images/page.png" />
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+        <script>
+            if (history.scrollRestoration) {
+                history.scrollRestoration = "manual";
+            }
+            window.scrollTo(0, 0);
+        </script>
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo" data-en="VELOCITY" data-ar="فيلوسيتي">
+                        VELOCITY
+                    </div>
+                    <nav class="nav">
+                        <a
+                            href="#home"
+                            class="nav-link"
+                            data-en="Home"
+                            data-ar="الرئيسية"
+                            >Home</a
+                        >
+                        <a
+                            href="#features"
+                            class="nav-link"
+                            data-en="Features"
+                            data-ar="المميزات"
+                            >Features</a
+                        >
+                        <a
+                            href="#models"
+                            class="nav-link"
+                            data-en="Models"
+                            data-ar="الموديلات"
+                            >Models</a
+                        >
+                        <a
+                            href="#specs"
+                            class="nav-link"
+                            data-en="Specs"
+                            data-ar="المواصفات"
+                            >Specs</a
+                        >
+                        <a
+                            href="#contact"
+                            class="nav-link"
+                            data-en="Contact"
+                            data-ar="اتصل بنا"
+                            >Contact</a
+                        >
+                    </nav>
+                    <div class="header-actions">
+                        <button
+                            class="btn-test-drive"
+                            data-en="Test Drive"
+                            data-ar="قيادة تجريبية"
+                        >
+                            Test Drive
+                        </button>
+                        <div class="language-switcher">
+                            <button class="lang-btn active" data-lang="en">
+                                EN
+                            </button>
+                            <button class="lang-btn" data-lang="ar">
+                                عربي
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <video class="hero-background" autoplay muted playsinline>
+                <source src="/images/hero-vid-hd.webm" type="video/webm" />
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1
+                        class="hero-title fade-in-up"
+                        data-en="Drive The Future"
+                        data-ar="قُد المستقبل"
+                    >
+                        Drive The
+                        <span class="gradient-text">Future</span>
+                    </h1>
+                    <p
+                        class="hero-subtitle fade-in-up delay-1"
+                        data-en="Experience unmatched performance, cutting-edge technology, and timeless elegance in every journey."
+                        data-ar="استمتع بأداء لا مثيل له وتقنية متطورة وأناقة خالدة في كل رحلة."
+                    >
+                        Experience unmatched performance, cutting-edge
+                        technology, and timeless elegance in every journey.
+                    </p>
+                    <div class="hero-buttons fade-in-up delay-2">
+                        <button
+                            class="btn btn-primary"
+                            data-en="Explore Models"
+                            data-ar="استكشف الموديلات"
+                        >
+                            Explore Models
+                            <svg
+                                class="arrow-icon"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        <button
+                            class="btn btn-outline"
+                            data-en="Book Test Drive"
+                            data-ar="احجز قيادة تجريبية"
+                        >
+                            Book Test Drive
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2
+                        class="section-title"
+                        data-en="Engineered For Excellence"
+                        data-ar="مهندسة للتميز"
+                    >
+                        Engineered For
+                        <span class="gradient-text">Excellence</span>
+                    </h2>
+                    <p
+                        class="section-subtitle"
+                        data-en="Every detail crafted to perfection, every feature designed to inspire."
+                        data-ar="كل تفصيل مصنوع بإتقان، وكل ميزة مصممة لتلهم."
+                    >
+                        Every detail crafted to perfection, every feature
+                        designed to inspire.
+                    </p>
+                </div>
+                <div class="features-grid">
+                    <!-- Feature card 1 -->
+                    <div class="feature-card" data-key="electric-power">
+                        <div class="card-flip">
+                            <div class="card-face card-back">
+                                <img
+                                    src="images/electric-pack.png"
+                                    alt="Electric Power"
+                                />
+                            </div>
+                            <div class="card-face card-front">
+                                <div class="feature-icon">
+                                    <svg
+                                        width="32"
+                                        height="32"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <polygon
+                                            points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                                        />
+                                    </svg>
+                                </div>
+                                <h3
+                                    class="feature-title"
+                                    data-en="Electric Power"
+                                    data-ar="الطاقة الكهربائية"
+                                >
+                                    Electric Power
+                                </h3>
+                                <p
+                                    class="feature-description"
+                                    data-en="Zero emissions with breathtaking acceleration and cutting-edge battery technology."
+                                    data-ar="انبعاثات صفر مع تسارع خاطف للأنفاس وتقنية بطارية متطورة."
+                                >
+                                    Zero emissions with breathtaking
+                                    acceleration and cutting-edge battery
+                                    technology.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature card 2 -->
+                    <div class="feature-card" data-key="advanced-safety">
+                        <div class="card-flip">
+                            <div class="card-face card-back">
+                                <img
+                                    src="images/security.png"
+                                    alt="Advanced Safety"
+                                />
+                            </div>
+                            <div class="card-face card-front">
+                                <div class="feature-icon">
+                                    <svg
+                                        width="32"
+                                        height="32"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                                        />
+                                    </svg>
+                                </div>
+                                <h3
+                                    class="feature-title"
+                                    data-en="Advanced Safety"
+                                    data-ar="الأمان المتقدم"
+                                >
+                                    Advanced Safety
+                                </h3>
+                                <p
+                                    class="feature-description"
+                                    data-en="Comprehensive safety suite with AI-powered collision prevention and autonomous features."
+                                    data-ar="مجموعة أمان شاملة مع منع التصادم بالذكاء الاصطناعي وميزات ذاتية."
+                                >
+                                    Comprehensive safety suite with AI-powered
+                                    collision prevention and autonomous
+                                    features.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature card 3 -->
+                    <div class="feature-card" data-key="peak-performance">
+                        <div class="card-flip">
+                            <div class="card-face card-back">
+                                <img
+                                    src="images/peak-performance.png"
+                                    alt="Peak Performance"
+                                />
+                            </div>
+                            <div class="card-face card-front">
+                                <div class="feature-icon">
+                                    <svg
+                                        width="32"
+                                        height="32"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M23 4v6h-6M1 20v-6h6" />
+                                        <path
+                                            d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"
+                                        />
+                                    </svg>
+                                </div>
+                                <h3
+                                    class="feature-title"
+                                    data-en="Peak Performance"
+                                    data-ar="الأداء المتميز"
+                                >
+                                    Peak Performance
+                                </h3>
+                                <p
+                                    class="feature-description"
+                                    data-en="Engineered for speed and precision with state-of-the-art suspension and handling."
+                                    data-ar="مهندسة للسرعة والدقة مع نظام تعليق وتحكم متطور."
+                                >
+                                    Engineered for speed and precision with
+                                    state-of-the-art suspension and handling.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature card 4 -->
+                    <div class="feature-card" data-key="premium-quality">
+                        <div class="card-flip">
+                            <div class="card-face card-back">
+                                <img
+                                    src="images/premium.png"
+                                    alt="Premium Quality"
+                                />
+                            </div>
+                            <div class="card-face card-front">
+                                <div class="feature-icon">
+                                    <svg
+                                        width="32"
+                                        height="32"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M12 15l-2-2v-7l2-2v11z" />
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path
+                                            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                                        />
+                                    </svg>
+                                </div>
+                                <h3
+                                    class="feature-title"
+                                    data-en="Premium Quality"
+                                    data-ar="الجودة الممتازة"
+                                >
+                                    Premium Quality
+                                </h3>
+                                <p
+                                    class="feature-description"
+                                    data-en="Handcrafted interiors with the finest materials and attention to every detail."
+                                    data-ar="تصميمات داخلية مصنوعة يدوياً بأجود المواد واهتمام بكل تفصيل."
+                                >
+                                    Handcrafted interiors with the finest
+                                    materials and attention to every detail.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature card 5 -->
+                    <div class="feature-card" data-key="smart-connectivity">
+                        <div class="card-flip">
+                            <div class="card-face card-back">
+                                <img
+                                    src="images/connectivity.png"
+                                    alt="Smart Connectivity"
+                                />
+                            </div>
+                            <div class="card-face card-front">
+                                <div class="feature-icon">
+                                    <svg
+                                        width="32"
+                                        height="32"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path d="M1 12s4-8 11-8 11 8 11 8" />
+                                        <path d="M5 16s3-6 7-6 7 6 7 6" />
+                                        <circle cx="12" cy="20" r="1" />
+                                    </svg>
+                                </div>
+                                <h3
+                                    class="feature-title"
+                                    data-en="Smart Connectivity"
+                                    data-ar="الاتصال الذكي"
+                                >
+                                    Smart Connectivity
+                                </h3>
+                                <p
+                                    class="feature-description"
+                                    data-en="Seamless integration with mobile apps, real-time diagnostics, and intelligent infotainment."
+                                    data-ar="تكامل سلس مع تطبيقات الهاتف والتشخيص الفوري والترفيه الذكي."
+                                >
+                                    Seamless integration with mobile apps,
+                                    real-time diagnostics, and intelligent
+                                    infotainment.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Models Showcase -->
+        <section id="models" class="showcase">
+            <div class="container">
+                <div class="section-header">
+                    <h2
+                        class="section-title"
+                        data-en="Our Collection"
+                        data-ar="مجموعتنا"
+                    >
+                        Our <span class="gradient-text">Collection</span>
+                    </h2>
+                    <p
+                        class="section-subtitle"
+                        data-en="Discover the perfect vehicle that matches your lifestyle and ambition."
+                        data-ar="اكتشف المركبة المثالية التي تناسب أسلوب حياتك وطموحك."
+                    >
+                        Discover the perfect vehicle that matches your lifestyle
+                        and ambition.
+                    </p>
+                </div>
+                <div class="showcase-grid">
+                    <div class="vehicle-card">
+                        <div class="vehicle-image">
+                            <img src="images/sedan.png" alt="Executive Sedan" />
+                            <div class="vehicle-overlay"></div>
+                            <div class="vehicle-info">
+                                <p
+                                    class="vehicle-tagline"
+                                    data-en="Sophistication Redefined"
+                                    data-ar="الأناقة المعاد تعريفها"
+                                >
+                                    Sophistication Redefined
+                                </p>
+                                <h3
+                                    class="vehicle-name"
+                                    data-en="Executive Sedan"
+                                    data-ar="سيدان تنفيذية"
+                                >
+                                    Executive Sedan
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="vehicle-specs">
+                            <div
+                                class="spec-item"
+                                data-en="0-60 mph in 3.2s"
+                                data-ar="٠-٦٠ ميل/س في ٣.٢ ثانية"
+                            >
+                                0-60 mph in 3.2s
+                            </div>
+                            <div
+                                class="spec-item"
+                                data-en="450 HP"
+                                data-ar="٤٥٠ حصان"
+                            >
+                                450 HP
+                            </div>
+                            <div
+                                class="spec-item"
+                                data-en="Electric Range: 400mi"
+                                data-ar="المدى الكهربائي: ٤٠٠ ميل"
+                            >
+                                Electric Range: 400mi
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vehicle-card">
+                        <div class="vehicle-image">
+                            <img src="images/suv.png" alt="Urban SUV" />
+                            <div class="vehicle-overlay"></div>
+                            <div class="vehicle-info">
+                                <p
+                                    class="vehicle-tagline"
+                                    data-en="Power Meets Elegance"
+                                    data-ar="القوة تلتقي بالأناقة"
+                                >
+                                    Power Meets Elegance
+                                </p>
+                                <h3
+                                    class="vehicle-name"
+                                    data-en="Urban SUV"
+                                    data-ar="سيارة دفع رباعي حضرية"
+                                >
+                                    Urban SUV
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="vehicle-specs">
+                            <div
+                                class="spec-item"
+                                data-en="0-60 mph in 4.1s"
+                                data-ar="٠-٦٠ ميل/س في ٤.١ ثانية"
+                            >
+                                0-60 mph in 4.1s
+                            </div>
+                            <div
+                                class="spec-item"
+                                data-en="380 HP"
+                                data-ar="٣٨٠ حصان"
+                            >
+                                380 HP
+                            </div>
+                            <div
+                                class="spec-item"
+                                data-en="Electric Range: 350mi"
+                                data-ar="المدى الكهربائي: ٣٥٠ ميل"
+                            >
+                                Electric Range: 350mi
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vehicle-card">
+                        <div class="vehicle-image">
+                            <img src="images/coupe.png" alt="Sport Coupe" />
+                            <div class="vehicle-overlay"></div>
+                            <div class="vehicle-info">
+                                <p
+                                    class="vehicle-tagline"
+                                    data-en="Pure Performance"
+                                    data-ar="الأداء الخالص"
+                                >
+                                    Pure Performance
+                                </p>
+                                <h3
+                                    class="vehicle-name"
+                                    data-en="Sport Coupe"
+                                    data-ar="كوبيه رياضية"
+                                >
+                                    Sport Coupe
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="vehicle-specs">
+                            <div
+                                class="spec-item"
+                                data-en="0-60 mph in 2.8s"
+                                data-ar="٠-٦٠ ميل/س في ٢.٨ ثانية"
+                            >
+                                0-60 mph in 2.8s
+                            </div>
+                            <div
+                                class="spec-item"
+                                data-en="550 HP"
+                                data-ar="٥٥٠ حصان"
+                            >
+                                550 HP
+                            </div>
+                            <div
+                                class="spec-item"
+                                data-en="Electric Range: 380mi"
+                                data-ar="المدى الكهربائي: ٣٨٠ ميل"
+                            >
+                                Electric Range: 380mi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specifications -->
+        <section id="specs" class="specs">
+            <div class="specs-background"></div>
+            <div class="container">
+                <div class="section-header">
+                    <h2
+                        class="section-title"
+                        data-en="Technical Specifications"
+                        data-ar="المواصفات التقنية"
+                    >
+                        Technical
+                        <span class="gradient-text">Specifications</span>
+                    </h2>
+                    <p
+                        class="section-subtitle"
+                        data-en="Raw power meets intelligent engineering in perfect harmony."
+                        data-ar="القوة الخام تلتقي بالهندسة الذكية في تناغم مثالي."
+                    >
+                        Raw power meets intelligent engineering in perfect
+                        harmony.
+                    </p>
+                </div>
+                <div class="specs-grid">
+                    <div class="spec-card">
+                        <p
+                            class="spec-label"
+                            data-en="Top Speed"
+                            data-ar="السرعة القصوى"
+                        >
+                            Top Speed
+                        </p>
+                        <p
+                            class="spec-value"
+                            data-en="200 mph"
+                            data-ar="٢٠٠ ميل/س"
+                        >
+                            200 mph
+                        </p>
+                    </div>
+                    <div class="spec-card">
+                        <p
+                            class="spec-label"
+                            data-en="Acceleration"
+                            data-ar="التسارع"
+                        >
+                            Acceleration
+                        </p>
+                        <p
+                            class="spec-value"
+                            data-en="0-60 in 2.8s"
+                            data-ar="٠-٦٠ في ٢.٨ ثانية"
+                        >
+                            0-60 in 2.8s
+                        </p>
+                    </div>
+                    <div class="spec-card">
+                        <p class="spec-label" data-en="Range" data-ar="المدى">
+                            Range
+                        </p>
+                        <p
+                            class="spec-value"
+                            data-en="400 miles"
+                            data-ar="٤٠٠ ميل"
+                        >
+                            400 miles
+                        </p>
+                    </div>
+                    <div class="spec-card">
+                        <p
+                            class="spec-label"
+                            data-en="Charging"
+                            data-ar="الشحن"
+                        >
+                            Charging
+                        </p>
+                        <p
+                            class="spec-value"
+                            data-en="15 min to 80%"
+                            data-ar="١٥ دقيقة إلى ٨٠٪"
+                        >
+                            15 min to 80%
+                        </p>
+                    </div>
+                    <div class="spec-card">
+                        <p class="spec-label" data-en="Power" data-ar="القوة">
+                            Power
+                        </p>
+                        <p
+                            class="spec-value"
+                            data-en="550 HP"
+                            data-ar="٥٥٠ حصان"
+                        >
+                            550 HP
+                        </p>
+                    </div>
+                    <div class="spec-card">
+                        <p
+                            class="spec-label"
+                            data-en="Torque"
+                            data-ar="عزم الدوران"
+                        >
+                            Torque
+                        </p>
+                        <p
+                            class="spec-value"
+                            data-en="700 lb-ft"
+                            data-ar="٧٠٠ رطل-قدم"
+                        >
+                            700 lb-ft
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="cta">
+            <div class="cta-background"></div>
+            <div class="container">
+                <div class="cta-content">
+                    <h2
+                        class="section-title"
+                        data-en="Begin Your Journey"
+                        data-ar="ابدأ رحلتك"
+                    >
+                        Begin Your <span class="gradient-text">Journey</span>
+                    </h2>
+                    <p
+                        class="section-subtitle"
+                        data-en="Join thousands of drivers experiencing automotive excellence. Schedule your test drive today."
+                        data-ar="انضم إلى آلاف السائقين الذين يختبرون التميز في عالم السيارات. احجز قيادتك التجريبية اليوم."
+                    >
+                        Join thousands of drivers experiencing automotive
+                        excellence. Schedule your test drive today.
+                    </p>
+                    <form class="cta-form">
+                        <div class="form-group">
+                            <svg
+                                class="input-icon"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                                />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                class="email-input"
+                                data-en-placeholder="Enter your email"
+                                data-ar-placeholder="أدخل بريدك الإلكتروني"
+                                required
+                            />
+                        </div>
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                            data-en="Get Started"
+                            data-ar="ابدأ الآن"
+                        >
+                            Get Started
+                        </button>
+                    </form>
+                    <p
+                        class="form-disclaimer"
+                        data-en="By submitting, you agree to receive communications from us."
+                        data-ar="بالإرسال، فإنك توافق على تلقي الاتصالات منا."
+                    >
+                        By submitting, you agree to receive communications from
+                        us.
+                    </p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <p class="stat-value" data-en="15K+" data-ar="١٥ ألف+">
+                            15K+
+                        </p>
+                        <p
+                            class="stat-label"
+                            data-en="Happy Customers"
+                            data-ar="عملاء سعداء"
+                        >
+                            Happy Customers
+                        </p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-value" data-en="98%" data-ar="٩٨٪">
+                            98%
+                        </p>
+                        <p
+                            class="stat-label"
+                            data-en="Satisfaction Rate"
+                            data-ar="معدل الرضا"
+                        >
+                            Satisfaction Rate
+                        </p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-value" data-en="50+" data-ar="٥٠+">
+                            50+
+                        </p>
+                        <p
+                            class="stat-label"
+                            data-en="Awards Won"
+                            data-ar="جوائز محققة"
+                        >
+                            Awards Won
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div
+                        class="footer-logo"
+                        data-en="VELOCITY"
+                        data-ar="فيلوسيتي"
+                    >
+                        VELOCITY
+                    </div>
+                    <p
+                        class="footer-copyright"
+                        data-en="© 2025 Velocity Motors. All rights reserved."
+                        data-ar="© ٢٠٢٥ فيلوسيتي موتورز. جميع الحقوق محفوظة."
+                    >
+                        © 2025 Velocity Motors. All rights reserved.
+                    </p>
+                    <div class="footer-links">
+                        <a href="#privacy" data-en="Privacy" data-ar="الخصوصية"
+                            >Privacy</a
+                        >
+                        <a href="#terms" data-en="Terms" data-ar="الشروط"
+                            >Terms</a
+                        >
+                        <a href="#support" data-en="Support" data-ar="الدعم"
+                            >Support</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <h1 class="loader-logo" data-en="VELOCITY" data-ar="فيلوسيتي">
+                VELOCITY
+            </h1>
+            <div class="loader-light"></div>
+        </div>
+    </div>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroVideo = document.querySelector('.hero-background');
+            heroVideo.pause();
+            setTimeout(() => {
+                heroVideo.play();
+            }, 1000); // Delay in milliseconds (1000ms = 1 second)
+        });
+    </script>
+</html>
