@@ -29,6 +29,32 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Enhanced Specs Animation Observer
+const specsObserverOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const specsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            const specCards = entry.target.querySelectorAll('.spec-card');
+            specCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('visible');
+                    // Add pulse effect to spec values
+                    const specValue = card.querySelector('.spec-value');
+                    if (specValue) {
+                        setTimeout(() => {
+                            specValue.style.animation = 'specValuePulse 0.6s ease-out';
+                        }, 300);
+                    }
+                }, index * 150);
+            });
+        }
+    });
+}, specsObserverOptions);
+
 // DOM loaded animations
 document.addEventListener('DOMContentLoaded', () => {
     const featureCards = document.querySelectorAll('.feature-card');
@@ -37,8 +63,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const vehicleCards = document.querySelectorAll('.vehicle-card');
     vehicleCards.forEach(card => observer.observe(card));
 
+    // Use enhanced observer for specs section
+    const specsSection = document.querySelector('.specs');
+    if (specsSection) {
+        specsObserver.observe(specsSection);
+    }
+
+    // Add hover interactions for spec cards
     const specCards = document.querySelectorAll('.spec-card');
-    specCards.forEach(card => observer.observe(card));
+    specCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-12px) rotateX(-5deg) scale(1.05)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) rotateX(0deg) scale(1)';
+        });
+        
+        // Add click animation
+        card.addEventListener('click', () => {
+            card.style.animation = 'specCardClick 0.3s ease-out';
+            setTimeout(() => {
+                card.style.animation = '';
+            }, 300);
+        });
+    });
 });
 
 // Header scroll
@@ -108,72 +157,101 @@ buttons.forEach(button => {
     });
 });
 
-// Counter animation
+// Counter animation for specs and stats
+const createCounterAnimation = (element, targetText, delay = 0) => {
+    setTimeout(() => {
+        const isPercentage = targetText.includes('%');
+        const isKPlus = targetText.includes('K+');
+        const isPlus = targetText.includes('+') && !isKPlus;
+        const isMph = targetText.includes('mph');
+        const isMin = targetText.includes('min');
+        const isHP = targetText.includes('HP');
+        const isFt = targetText.includes('ft');
+        const isMiles = targetText.includes('miles');
+        const hasS = targetText.includes('s') && !isMiles;
+        
+        let targetNumber;
+        if (isKPlus) {
+            targetNumber = parseInt(targetText.replace(/\D/g, '')) * 1000;
+        } else {
+            targetNumber = parseInt(targetText.replace(/\D/g, ''));
+        }
+        
+        if (targetNumber) {
+            let currentNumber = 0;
+            const duration = 1500;
+            const increment = targetNumber / (duration / 16);
+            
+            const counterInterval = setInterval(() => {
+                currentNumber += increment;
+                if (currentNumber >= targetNumber) {
+                    element.textContent = targetText;
+                    clearInterval(counterInterval);
+                } else {
+                    let displayText = Math.floor(currentNumber);
+                    if (isKPlus) {
+                        displayText = Math.floor(currentNumber / 1000) + 'K+';
+                    } else if (isPercentage) {
+                        displayText = displayText + '%';
+                    } else if (isPlus) {
+                        displayText = displayText + '+';
+                    } else if (isMph) {
+                        displayText = displayText + ' mph';
+                    } else if (isMin) {
+                        displayText = displayText + ' min to 80%';
+                    } else if (isHP) {
+                        displayText = displayText + ' HP';
+                    } else if (isFt) {
+                        displayText = displayText + ' lb-ft';
+                    } else if (isMiles) {
+                        displayText = displayText + ' miles';
+                    } else if (hasS) {
+                        displayText = '0-60 in ' + (currentNumber / 10).toFixed(1) + 's';
+                    }
+                    element.textContent = displayText;
+                }
+            }, 16);
+        }
+    }, delay);
+};
+
+// Counter animation for stats
 const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.dataset.animated) {
             const statItems = entry.target.querySelectorAll('.stat-item');
             statItems.forEach((item, index) => {
-                setTimeout(() => {
-                    const valueElement = item.querySelector('.stat-value');
-                    const text = valueElement.textContent.trim();
-                    const isPercentage = text.includes('%');
-                    const isKPlus = text.includes('K+');
-                    const isPlus = text.includes('+') && !isKPlus;
-
-                    let targetNumber;
-                    if (isKPlus) {
-                        targetNumber = parseInt(text.replace(/\D/g, '')) * 1000;
-                    } else {
-                        targetNumber = parseInt(text.replace(/\D/g, ''));
-                    }
-
-                    if (targetNumber) {
-                        let currentNumber = 0;
-                        const duration = 2000;
-                        const increment = targetNumber / (duration / 16);
-
-                        const counterInterval = setInterval(() => {
-                            currentNumber += increment;
-                            if (currentNumber >= targetNumber) {
-                                let finalText;
-                                if (isKPlus) {
-                                    finalText = Math.floor(targetNumber / 1000) + 'K+';
-                                } else if (isPercentage) {
-                                    finalText = targetNumber + '%';
-                                } else if (isPlus) {
-                                    finalText = targetNumber + '+';
-                                } else {
-                                    finalText = targetNumber;
-                                }
-                                valueElement.textContent = finalText;
-                                clearInterval(counterInterval);
-                            } else {
-                                let displayNumber;
-                                if (isKPlus) {
-                                    displayNumber = Math.floor(currentNumber / 1000) + 'K+';
-                                } else if (isPercentage) {
-                                    displayNumber = Math.floor(currentNumber) + '%';
-                                } else if (isPlus) {
-                                    displayNumber = Math.floor(currentNumber) + '+';
-                                } else {
-                                    displayNumber = Math.floor(currentNumber);
-                                }
-                                valueElement.textContent = displayNumber;
-                            }
-                        }, 16);
-                    }
-                }, index * 200);
+                const valueElement = item.querySelector('.stat-value');
+                const targetText = valueElement.textContent.trim();
+                createCounterAnimation(valueElement, targetText, index * 200);
             });
             entry.target.dataset.animated = 'true';
         }
     });
 }, { threshold: 0.3 });
 
-// Observe stats
+// Specs counter animation
+const specsCounterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.animated) {
+            const specCards = entry.target.querySelectorAll('.spec-card');
+            specCards.forEach((card, index) => {
+                const valueElement = card.querySelector('.spec-value');
+                const targetText = valueElement.textContent.trim();
+                createCounterAnimation(valueElement, targetText, index * 150 + 500);
+            });
+            entry.target.dataset.animated = 'true';
+        }
+    });
+}, { threshold: 0.2 });
+
+// Observe stats and specs
 document.addEventListener('DOMContentLoaded', () => {
     const stats = document.querySelector('.stats');
     if (stats) statsObserver.observe(stats);
+    
+    const specsSection = document.querySelector('.specs');
+    if (specsSection) specsCounterObserver.observe(specsSection);
 });
 
 // Loader hide
@@ -192,6 +270,23 @@ window.addEventListener("load", () => {
 
     }, 700);
 });
+
+// Add CSS animations via JavaScript
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes specValuePulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+    
+    @keyframes specCardClick {
+        0% { transform: translateY(0) rotateX(0deg) scale(1); }
+        50% { transform: translateY(-5px) rotateX(-2deg) scale(0.98); }
+        100% { transform: translateY(0) rotateX(0deg) scale(1); }
+    }
+`;
+document.head.appendChild(style);
 
 // FEATURE CAROUSEL FIX
 let currentFeatureIndex = 0;
