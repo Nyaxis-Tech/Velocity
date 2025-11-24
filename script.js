@@ -355,6 +355,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Vehicle Filter Functionality
+function filterVehicles(category) {
+    const vehicleCards = document.querySelectorAll('.vehicle-card');
+    const showcaseGrid = document.querySelector('.showcase-grid');
+    let visibleCount = 0;
+    
+    vehicleCards.forEach(card => {
+        const cardCategories = card.getAttribute('data-category').split(' ');
+        
+        if (category === 'all' || cardCategories.includes(category)) {
+            card.classList.remove('hidden');
+            card.classList.add('visible');
+            visibleCount++;
+        } else {
+            card.classList.add('hidden');
+            card.classList.remove('visible');
+        }
+    });
+    
+    // Update grid layout based on visible items
+    showcaseGrid.classList.remove('single-item', 'two-items', 'filtered');
+    if (visibleCount === 1) {
+        showcaseGrid.classList.add('single-item');
+    } else if (visibleCount === 2) {
+        showcaseGrid.classList.add('two-items');
+    } else if (visibleCount < vehicleCards.length) {
+        showcaseGrid.classList.add('filtered');
+    }
+}
+
+// Initialize filter functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            // Get filter category
+            const category = button.getAttribute('data-filter');
+            
+            // Filter vehicles
+            filterVehicles(category);
+        });
+    });
+    
+    // Initialize with all vehicles visible
+    filterVehicles('all');
+});
+
 // Active navigation highlight
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
