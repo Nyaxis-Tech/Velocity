@@ -157,24 +157,44 @@ buttons.forEach(button => {
     });
 });
 
+// Convert Arabic numerals to Western numerals
+const toWestern = (str) => {
+    const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+    return str.split('').map(char => {
+        const index = arabicNumerals.indexOf(char);
+        return index !== -1 ? index.toString() : char;
+    }).join('');
+};
+
+// Convert Western numerals to Arabic numerals
+const toArabic = (num) => {
+    const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+    return num.toString().split('').map(char => {
+        return /\d/.test(char) ? arabicNumerals[parseInt(char)] : char;
+    }).join('');
+};
+
 // Counter animation for specs and stats
 const createCounterAnimation = (element, targetText, delay = 0) => {
     setTimeout(() => {
-        const isPercentage = targetText.includes('%');
-        const isKPlus = targetText.includes('K+');
-        const isPlus = targetText.includes('+') && !isKPlus;
-        const isMph = targetText.includes('mph');
-        const isMin = targetText.includes('min');
-        const isHP = targetText.includes('HP');
-        const isFt = targetText.includes('ft');
-        const isMiles = targetText.includes('miles');
-        const hasS = targetText.includes('s') && !isMiles;
+        const isArabic = currentLanguage === 'ar';
+        const normalizedText = isArabic ? toWestern(targetText) : targetText;
+        
+        const isPercentage = normalizedText.includes('%');
+        const isKPlus = normalizedText.includes('K+');
+        const isPlus = normalizedText.includes('+') && !isKPlus;
+        const isMph = normalizedText.includes('mph') || targetText.includes('ميل/س');
+        const isMin = normalizedText.includes('min') || targetText.includes('دقيقة');
+        const isHP = normalizedText.includes('HP') || targetText.includes('حصان');
+        const isFt = normalizedText.includes('ft') || targetText.includes('رطل-قدم');
+        const isMiles = normalizedText.includes('miles') || targetText.includes('ميل');
+        const hasS = (normalizedText.includes('s') || targetText.includes('ثانية')) && !isMiles;
         
         let targetNumber;
         if (isKPlus) {
-            targetNumber = parseInt(targetText.replace(/\D/g, '')) * 1000;
+            targetNumber = parseInt(normalizedText.replace(/\D/g, '')) * 1000;
         } else {
-            targetNumber = parseInt(targetText.replace(/\D/g, ''));
+            targetNumber = parseInt(normalizedText.replace(/\D/g, ''));
         }
         
         if (targetNumber) {
@@ -188,26 +208,33 @@ const createCounterAnimation = (element, targetText, delay = 0) => {
                     element.textContent = targetText;
                     clearInterval(counterInterval);
                 } else {
-                    let displayText = Math.floor(currentNumber);
+                    let displayNum = Math.floor(currentNumber);
+                    let displayText;
+                    
                     if (isKPlus) {
-                        displayText = Math.floor(currentNumber / 1000) + 'K+';
+                        displayNum = Math.floor(currentNumber / 1000);
+                        displayText = isArabic ? toArabic(displayNum) + 'K+' : displayNum + 'K+';
                     } else if (isPercentage) {
-                        displayText = displayText + '%';
+                        displayText = isArabic ? toArabic(displayNum) + '%' : displayNum + '%';
                     } else if (isPlus) {
-                        displayText = displayText + '+';
+                        displayText = isArabic ? toArabic(displayNum) + '+' : displayNum + '+';
                     } else if (isMph) {
-                        displayText = displayText + ' mph';
+                        displayText = isArabic ? toArabic(displayNum) + ' ميل/س' : displayNum + ' mph';
                     } else if (isMin) {
-                        displayText = displayText + ' min to 80%';
+                        displayText = isArabic ? toArabic(displayNum) + ' دقيقة إلى ٨٠٪' : displayNum + ' min to 80%';
                     } else if (isHP) {
-                        displayText = displayText + ' HP';
+                        displayText = isArabic ? toArabic(displayNum) + ' حصان' : displayNum + ' HP';
                     } else if (isFt) {
-                        displayText = displayText + ' lb-ft';
+                        displayText = isArabic ? toArabic(displayNum) + ' رطل-قدم' : displayNum + ' lb-ft';
                     } else if (isMiles) {
-                        displayText = displayText + ' miles';
+                        displayText = isArabic ? toArabic(displayNum) + ' ميل' : displayNum + ' miles';
                     } else if (hasS) {
-                        displayText = '0-60 in ' + (currentNumber / 10).toFixed(1) + 's';
+                        const seconds = (currentNumber / 10).toFixed(1);
+                        displayText = isArabic ? '٠-٦٠ في ' + toArabic(seconds) + ' ثانية' : '0-60 in ' + seconds + 's';
+                    } else {
+                        displayText = isArabic ? toArabic(displayNum) : displayNum;
                     }
+                    
                     element.textContent = displayText;
                 }
             }, 16);

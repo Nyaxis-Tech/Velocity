@@ -6,8 +6,8 @@
 }
 
 @font-face {
-    font-family: "TheYearOfHandicrafts";
-    src: url(./fonts/alfont_com_TheYearofHandicrafts-Bold.otf);
+    font-family: "bigvesta-bold";
+    src: url(./fonts/BigVesta\ Arabic\ Beta\ Bold.ttf);
 }
 @font-face {
     font-family: "din-next-regular";
@@ -20,7 +20,7 @@ body[dir="rtl"] h3,
 body[dir="rtl"] h4,
 body[dir="rtl"] h5,
 body[dir="rtl"] h6 {
-    font-family: "TheYearOfHandicrafts", sans-serif;
+    font-family: "bigvesta-bold", sans-serif;
 }
 
 body[dir="rtl"] p,
