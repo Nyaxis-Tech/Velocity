@@ -114,6 +114,7 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     letter-spacing: 2px;
+    font-family: "bigvesta-bold", sans-serif;
 }
 
 .nav-link {
