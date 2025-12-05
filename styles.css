@@ -1375,6 +1375,7 @@ section {
 }
 
 .footer-logo {
+    font-family: "bigvesta-bold", sans-serif;
     font-size: 1.5rem;
     font-weight: 900;
     background: linear-gradient(135deg, #e5e5e5, #fafafa);
