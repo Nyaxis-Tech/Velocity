@@ -910,6 +910,16 @@ section {
     transform: scale(1.2);
 }
 
+/* Flip BMW image to face right and zoom it in */
+.vehicle-card[data-category="sedan"] .vehicle-img-bg,
+.vehicle-card[data-category="sedan"] .vehicle-img-nobg {
+    transform: scaleX(-1) scale(1.35);
+}
+
+.vehicle-card[data-category="sedan"]:hover .vehicle-img-nobg {
+    transform: scaleX(-1) scale(1.8);
+}
+
 .vehicle-overlay {
     position: absolute;
     inset: 0;
